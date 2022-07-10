@@ -27,7 +27,7 @@ mongoose.connect(dbURL, () => {
           console.log("Products collection dropped");
           console.log("Inserting seed data");
           const logs = data.logs.map((log) => {
-            log.products = insertedProducts.map((product) => {
+            log.productIds = insertedProducts.map((product) => {
               return product._id;
             });
             return log;

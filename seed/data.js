@@ -1,5 +1,5 @@
 module.exports = {
-  skincares: [
+  products: [
     {
       kind: "cleanser",
       name: "Hemish Cleansing Balm",

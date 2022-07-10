@@ -2,7 +2,6 @@ const express = require("express");
 const skincareRouter = express.Router();
 
 const Skincare = require("../models/skincare");
-const Log = require(`../models/logs`);
 
 //============
 //Index GET /
@@ -26,7 +25,7 @@ skincareRouter.get("/", (req, res) => {
 //Show GET /;id
 //=============
 // skincareRouter.get("/:id", (req, res) => {
-//   SKincare.findById(req.params.id)
+//   Skincare.findById(req.params.id)
 //     .exec()
 //     .then((product) => {
 //       res.render("../views/products/show.ejs", {

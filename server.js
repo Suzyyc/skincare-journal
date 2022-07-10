@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 
 const skincareRouter = require("./controllers/skincare");
+const logRouter = require("./controllers/log");
 
 const PORT = process.env.PORT;
 const dbURL = process.env.MONGODB_URL;
@@ -15,7 +16,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
-app.use("/", skincareRouter);
+app.use("/skincare", skincareRouter);
+app.use("/logs", logRouter);
 
 mongoose.connect(dbURL, () => {
   console.log("connected to MongoDB");

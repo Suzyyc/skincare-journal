@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const journalLogSchema = new Schema(
   {
     date: Date,
-    decription: String,
+    description: String,
     products: [String],
   },
   { timestamps: true }

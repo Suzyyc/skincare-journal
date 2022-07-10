@@ -21,19 +21,25 @@ mongoose.connect(dbURL, () => {
       return Skincare.insertMany(data.products);
     })
     .then((insertedProducts) => {
+      Log.collection
+        .drop()
+        .then(() => {
+          console.log("Products collection dropped");
+          console.log("Inserting seed data");
+          const logs = data.logs.map((log) => {
+            log.products = insertedProducts.map((product) => {
+              return product._id;
+            });
+            return log;
+          });
+          return Log.insertMany(logs);
+        })
+        .then((insertedLogs) => {
+          console.log("Generic logs inserted");
+          console.log(insertedLogs);
+          mongoose.connection.close();
+        });
       console.log("Generic products inserted");
       console.log(insertedProducts);
-    });
-  Log.collection
-    .drop()
-    .then(() => {
-      console.log("Products collection dropped");
-      console.log("Inserting seed data");
-      return Log.insertMany(data.logs);
-    })
-    .then((insertedLogs) => {
-      console.log("Generic logs inserted");
-      console.log(insertedLogs);
-      mongoose.connection.close();
     });
 });

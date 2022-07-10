@@ -21,6 +21,6 @@ const SkincareSchema = new Schema(
   { timestamps: true }
 );
 
-const Skincare = mongoose.model("Skincare", SkincareSchema);
+const SkincareProducts = mongoose.model("Skincare", SkincareSchema);
 
-module.exports = Skincare;
+module.exports = SkincareProducts;

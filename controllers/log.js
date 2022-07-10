@@ -2,7 +2,7 @@ const express = require("express");
 const logRouter = express.Router();
 
 const Log = require(`../models/log`);
-const Skincare = require("../models/skincare");
+const SkincareProducts = require("../models/skincare");
 
 //============
 //Index GET /
@@ -29,16 +29,16 @@ logRouter.get("/:id", (req, res) => {
   Log.findById(req.params.id)
     .exec()
     .then((log) => {
-      Skincare.find({ _id: { $in: log.productIds } })
+      SkincareProducts.find({ _id: { $in: log.productIds } })
         .exec()
         .then((products) => {
           console.log(log);
           console.log(products);
-          res.send(log.description);
+          res.render("../views/products/show.ejs", {
+            log: log,
+            products: products,
+          });
         });
-      //   res.render("../views/products/show.ejs", {
-      //     log: log,
-      //   });
     });
 });
 
@@ -59,6 +59,7 @@ logRouter.get("/:id", (req, res) => {
 //=============
 //CREATE POST/
 //=============
+// {description: "", date: "", productIds: ["", ""]}
 // logRouter.post("/", (req, res) => {
 //   Log.create(req.body).then((log) => {
 //     res.redirect("/" + log.id);

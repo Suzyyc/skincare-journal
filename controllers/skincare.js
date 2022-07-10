@@ -1,13 +1,13 @@
 const express = require("express");
 const skincareRouter = express.Router();
 
-const Skincare = require("../models/skincare");
+const SkincareProducts = require("../models/skincare");
 
 //============
 //Index GET /
 //============
 skincareRouter.get("/", (req, res) => {
-  Skincare.find()
+  SkincareProducts.find()
     .exec()
     .then((SkincareProducts) => {
       res.send(SkincareProducts);
@@ -25,7 +25,7 @@ skincareRouter.get("/", (req, res) => {
 //Show GET /;id
 //=============
 // skincareRouter.get("/:id", (req, res) => {
-//   Skincare.findById(req.params.id)
+//   SkincareProducts.findById(req.params.id)
 //     .exec()
 //     .then((product) => {
 //       res.render("../views/products/show.ejs", {
@@ -39,7 +39,7 @@ skincareRouter.get("/", (req, res) => {
 //===================
 // skincareRouter.get("/:id/edit", (req, res) => {
 //   //   res.send("edit product with id " + req.params.id);
-//   Skincare.findById(req.params.id)
+//   SkincareProducts.findById(req.params.id)
 //     .exec()
 //     .then((skincare) => {
 //       res.render("products/edit.ejs", {
@@ -52,7 +52,7 @@ skincareRouter.get("/", (req, res) => {
 //CREATE POST/
 //=============
 // skincareRouter.post("/", (req, res) => {
-//   Skincare.create(req.body).then((skincare) => {
+//   SkincareProducts.create(req.body).then((skincare) => {
 //     res.redirect("/" + skincare.id);
 //   });
 // });
@@ -61,7 +61,7 @@ skincareRouter.get("/", (req, res) => {
 //UPDATE PUT /:id
 //================
 // skincareRouter.put("/:id", (req, res) => {
-//   Skincare.findByIdAndUpdate(req.params.id, req.body)
+//   SkincareProducts.findByIdAndUpdate(req.params.id, req.body)
 //     .exec()
 //     .then(() => {
 //       res.redirect("/" + req.params.id);
@@ -72,7 +72,7 @@ skincareRouter.get("/", (req, res) => {
 //DESTROY DELETE /;id
 //===================
 // skincareRouter.delete("/:id", (req, res) => {
-//   Skincare.findByIdAndDelete(req.params.id)
+//   SkincareProducts.findByIdAndDelete(req.params.id)
 //     .exec()
 //     .then(() => {
 //       res.redirect("/");

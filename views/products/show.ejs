@@ -1,0 +1,9 @@
+<h1>Skincare Journal</h1>
+
+<p><%= log.date %></p>
+<p><%= log.description %></p>
+<% for (const product of products) {%>
+
+<p><%= product.kind %>: <%= product.name %></p>
+
+<% } %>

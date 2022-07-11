@@ -1,11 +1,11 @@
 module.exports = {
   products: [
     {
-      kind: "cleanser",
+      kind: "Cleanser",
       name: "Hemish Cleansing Balm",
     },
     {
-      kind: "toner",
+      kind: "Toner",
       name: "Laniege Cream Toner",
     },
   ],

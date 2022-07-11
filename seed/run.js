@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-const SkincareProducts = require("../models/skincare");
+const SkincareProduct = require("../models/skincare");
 const Log = require("../models/log");
 
 const data = require("./data");
@@ -13,12 +13,12 @@ mongoose.connect(dbURL, () => {
   console.log("Resetting Skincare collection");
   //   Product.insertMany(genericProducts);
   //   return;
-  SkincareProducts.collection
+  SkincareProduct.collection
     .drop()
     .then(() => {
       console.log("Products collection dropped");
       console.log("Inserting seed data");
-      return SkincareProducts.insertMany(data.products);
+      return SkincareProduct.insertMany(data.products);
     })
     .then((insertedProducts) => {
       Log.collection

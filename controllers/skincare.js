@@ -1,13 +1,13 @@
 const express = require("express");
 const skincareRouter = express.Router();
 
-const SkincareProducts = require("../models/skincare");
+const SkincareProduct = require("../models/skincare");
 
 //============
 //Index GET /
 //============
 skincareRouter.get("/", (req, res) => {
-  SkincareProducts.find()
+  SkincareProduct.find()
     .exec()
     .then((SkincareProducts) => {
       res.send(SkincareProducts);

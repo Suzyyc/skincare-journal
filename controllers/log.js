@@ -2,7 +2,7 @@ const express = require("express");
 const logRouter = express.Router();
 
 const Log = require(`../models/log`);
-const SkincareProducts = require("../models/skincare");
+const SkincareProduct = require("../models/skincare");
 
 //============
 //Index GET /
@@ -12,7 +12,7 @@ logRouter.get("/", (req, res) => {
     .exec()
     .then((logs) => {
       // console.log(logs);
-      SkincareProducts.find()
+      SkincareProduct.find()
         .exec()
         .then((products) => {
           console.log(logs);
@@ -40,7 +40,8 @@ logRouter.get("/:id", (req, res) => {
   Log.findById(req.params.id)
     .exec()
     .then((log) => {
-      SkincareProducts.find({ _id: { $in: log.productIds } })
+      console.log(log);
+      SkincareProduct.find({ _id: { $in: log.productIds } })
         .exec()
         .then((products) => {
           console.log(log);
@@ -92,12 +93,12 @@ logRouter.get("/:id", (req, res) => {
 //===================
 //DESTROY DELETE /;id
 //===================
-// logRouter.delete("/:id", (req, res) => {
-//   Log.findByIdAndDelete(req.params.id)
-//     .exec()
-//     .then(() => {
-//       res.redirect("/");
-//     });
-// });
+logRouter.delete("/:id", (req, res) => {
+  Log.findByIdAndDelete(req.params.id)
+    .exec()
+    .then(() => {
+      res.redirect("/logs");
+    });
+});
 
 module.exports = logRouter;

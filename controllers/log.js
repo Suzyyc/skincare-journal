@@ -11,12 +11,9 @@ logRouter.get("/", (req, res) => {
   Log.find({}, null, { sort: { date: -1 } })
     .exec()
     .then((logs) => {
-      // console.log(logs);
       SkincareProduct.find()
         .exec()
         .then((products) => {
-          // console.log(logs);
-          // console.log(products);
           res.render("../views/logs/index.ejs", {
             logs: logs,
             products: products,
@@ -30,7 +27,6 @@ logRouter.get("/", (req, res) => {
 //NEW GET /new
 //============
 logRouter.get("/new", (req, res) => {
-  // res.send("hi");
   res.render("../views/logs/new.ejs", {
     tabTitle: "New Journal Summary",
   });
@@ -43,12 +39,9 @@ logRouter.get("/:id", (req, res) => {
   Log.findById(req.params.id)
     .exec()
     .then((log) => {
-      // console.log(log);
       SkincareProduct.find({ _id: { $in: log.productIds } })
         .exec()
         .then((products) => {
-          // console.log(log);
-          // console.log(products);
           res.render("../views/logs/show.ejs", {
             log: log,
             products: products,
@@ -80,7 +73,6 @@ logRouter.get("/:id/edit", (req, res) => {
 //=============
 //CREATE POST/
 //=============
-// {description: "", date: "", productIds: ["", ""]}
 logRouter.post("/", (req, res) => {
   Log.create(req.body).then((log) => {
     res.redirect("/logs/" + log.id);

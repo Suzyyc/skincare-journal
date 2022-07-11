@@ -4,64 +4,44 @@ const skincareRouter = express.Router();
 const SkincareProduct = require("../models/skincare");
 
 //============
-//Index GET /
-//============
-skincareRouter.get("/", (req, res) => {
-  SkincareProduct.find()
-    .exec()
-    .then((SkincareProducts) => {
-      res.send(SkincareProducts);
-    });
-});
-
-//============
 //NEW GET /new
 //============
-// skincareRouter.get("/new", (req, res) => {
-//   res.render("../views/products/new.ejs");
-// });
-
-//=============
-//Show GET /;id
-//=============
-// skincareRouter.get("/:id", (req, res) => {
-//   SkincareProducts.findById(req.params.id)
-//     .exec()
-//     .then((product) => {
-//       res.render("../views/products/show.ejs", {
-//         skincare: skincare,
-//       });
-//     });
-// });
+skincareRouter.get("/new", (req, res) => {
+  res.render("../views/products/new.ejs", {
+    tabTitle: "New Product",
+  });
+});
 
 //===================
 //Edit GET / :id/edit
 //===================
-// skincareRouter.get("/:id/edit", (req, res) => {
-//   //   res.send("edit product with id " + req.params.id);
-//   SkincareProducts.findById(req.params.id)
-//     .exec()
-//     .then((skincare) => {
-//       res.render("products/edit.ejs", {
-//           skincare: skincare,
-//       });
-//     });
-// });
+skincareRouter.get("/:id/edit", (req, res) => {
+  //   res.send("edit product with id " + req.params.id);
+  SkincareProduct.findById(req.params.id)
+    .exec()
+    .then((product) => {
+      res.render("products/edit.ejs", {
+        product: product,
+        tabTitle: "Edit Product",
+      });
+    });
+});
 
 //=============
 //CREATE POST/
 //=============
-// skincareRouter.post("/", (req, res) => {
-//   SkincareProducts.create(req.body).then((skincare) => {
-//     res.redirect("/" + skincare.id);
-//   });
-// });
+skincareRouter.post("/", (req, res) => {
+  console.log(req.body);
+  SkincareProduct.create(req.body).then(() => {
+    res.redirect("/logs");
+  });
+});
 
 //================
 //UPDATE PUT /:id
 //================
 // skincareRouter.put("/:id", (req, res) => {
-//   SkincareProducts.findByIdAndUpdate(req.params.id, req.body)
+//   SkincareProduct.findByIdAndUpdate(req.params.id, req.body)
 //     .exec()
 //     .then(() => {
 //       res.redirect("/" + req.params.id);
@@ -72,7 +52,7 @@ skincareRouter.get("/", (req, res) => {
 //DESTROY DELETE /;id
 //===================
 // skincareRouter.delete("/:id", (req, res) => {
-//   SkincareProducts.findByIdAndDelete(req.params.id)
+//   SkincareProduct.findByIdAndDelete(req.params.id)
 //     .exec()
 //     .then(() => {
 //       res.redirect("/");

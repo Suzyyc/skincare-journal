@@ -15,7 +15,9 @@
 <p>Products</p>
 
 <% for (const product of products) {%>
-
 <p><%= product.kind %>: <%= product.name %></p>
+<% } %> 
 
-<% } %> <%- include('../partials/footer.ejs') %>
+<p><a href="/skincare/new"/>New Product</a></p>
+
+<%- include('../partials/footer.ejs') %>

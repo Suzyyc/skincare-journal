@@ -8,7 +8,7 @@ const SkincareProduct = require("../models/skincare");
 //Index GET /
 //============
 logRouter.get("/", (req, res) => {
-  Log.find()
+  Log.find({}, null, { sort: { date: -1 } })
     .exec()
     .then((logs) => {
       // console.log(logs);
@@ -29,9 +29,12 @@ logRouter.get("/", (req, res) => {
 //============
 //NEW GET /new
 //============
-//logRouter.get("/new", (req, res) => {
-//   res.render("../views/products/new.ejs");
-// });
+logRouter.get("/new", (req, res) => {
+  // res.send("hi");
+  res.render("../views/logs/new.ejs", {
+    tabTitle: "New Journal Summary",
+  });
+});
 
 //=============
 //Show GET /;id
@@ -68,6 +71,7 @@ logRouter.get("/:id/edit", (req, res) => {
           res.render("logs/edit.ejs", {
             log: log,
             products: products,
+            tabTitle: "Edit Journal Summary",
           });
         });
     });
@@ -77,16 +81,20 @@ logRouter.get("/:id/edit", (req, res) => {
 //CREATE POST/
 //=============
 // {description: "", date: "", productIds: ["", ""]}
-// logRouter.post("/logs", (req, res) => {
-//   Log.create(req.body).then((log) => {
-//     res.redirect("/" + log.id);
-//   });
-// });
+logRouter.post("/", (req, res) => {
+  Log.create(req.body).then((log) => {
+    res.redirect("/logs/" + log.id);
+  });
+});
 
 //================
 //UPDATE PUT /:id
 //================
 logRouter.put("/:id", (req, res) => {
+  console.log(req.body);
+  if (req.body.productIds === undefined) {
+    req.body.productIds = [];
+  }
   Log.findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then((newLog) => {

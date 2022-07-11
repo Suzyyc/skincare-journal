@@ -1,28 +1,35 @@
+<%- include('../partials/head.ejs') %>
+
 <h1>Update Journal</h1>
 
 <form action="/logs/<%= log.id %>?_method=PUT" method="post">
-    <label for="description">Summary</label>
-    <input type="text" name="description" id="description" value="<%= log.description %>" />
+  <label for="description">Summary</label>
+  <input
+    type="text"
+    name="description"
+    id="description"
+    value="<%= log.description %>"
+  />
 
-    <input type="submit" value="Update Entry" />
+  <input type="submit" value="Update Entry" />
 
-    <%  for (let i = 0; i < products.length ; i++)  { 
-        const product = products[i]
-    %>
+  <% for (let i = 0; i < products.length ; i++) { const product = products[i] %>
 
-
-        <label for="productIds-<%= i %>"><%= product.kind %>: <%= product.name %></label>
-        <input
-            type="checkbox"
-            name="productIds[<%= i %>]"
-            id="productIds-<%= i %>"
-            value="<%= product._id %>"
-            <% if (log.productIds.includes(product._id)) { %>
-                checked
-            <% } %>
-        />
-    <% } %>
-
+  <label for="productIds-<%= i %>"
+    ><%= product.kind %>: <%= product.name %></label
+  >
+  <input
+    type="checkbox"
+    name="productIds[<%= i %>]"
+    id="productIds-<%= i %>"
+    value="<%= product._id %>"
+    <%
+    if
+    (log.productIds.includes(product._id))
+    {
+    %
+  />
+  checked <% } %> /> <% } %>
 </form>
 
-    <p><a href="/logs"/>Home</a></p>
+<%- include('../partials/footer.ejs') %>

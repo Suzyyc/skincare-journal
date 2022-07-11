@@ -1,0 +1,15 @@
+<%- include('../partials/head.ejs') %>
+
+<h1>New Summary</h1>
+
+<form action="/logs" method="post">
+  <label for="date">Date</label>
+  <input type="date" name="date" id="date" />
+
+  <label for="description">Summary</label>
+  <input type="text" name="description" id="description" />
+
+  <input type="submit" value="New Summary" />
+</form>
+
+<%- include('../partials/footer.ejs') %>

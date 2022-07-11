@@ -7,15 +7,15 @@ const SkincareSchema = new Schema(
     kind: {
       type: String,
       enum: [
-        "cleanser",
-        "toner",
-        "serum",
-        "eye_cream",
-        "moisturiser",
-        "spf",
-        "generic",
+        "Cleanser",
+        "Toner",
+        "Serum",
+        "Eye_Cream",
+        "Moisturiser",
+        "SPF",
+        "Generic",
       ],
-      default: "generic",
+      default: "Generic",
     },
   },
   { timestamps: true }

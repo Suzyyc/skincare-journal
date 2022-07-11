@@ -10,10 +10,30 @@ const SkincareProducts = require("../models/skincare");
 logRouter.get("/", (req, res) => {
   Log.find()
     .exec()
-    .then((logs) => {
-      res.send(logs);
+    .then(() => {
+      res.render("../views/products/index.ejs", {
+        tabTitle: "Skincare Journal",
+      });
     });
 });
+
+// logRouter.get("/", (req, res) => {
+//   Log.findById(req.params.id)
+//     .exec()
+//     .then((log) => {
+//       SkincareProducts.find({ _id: { $in: log.productIds } })
+//         .exec()
+//         .then((products) => {
+//           console.log(log);
+//           console.log(products);
+//           res.render("../views/products/index.ejs", {
+//             log: log,
+//             products: products,
+//             tabTitle: "Log & Skincare",
+//           });
+//         });
+//     });
+// });
 
 //============
 //NEW GET /new
@@ -37,6 +57,7 @@ logRouter.get("/:id", (req, res) => {
           res.render("../views/products/show.ejs", {
             log: log,
             products: products,
+            tabTitle: "Log & Skincare",
           });
         });
     });

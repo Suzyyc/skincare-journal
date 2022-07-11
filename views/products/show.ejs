@@ -1,3 +1,5 @@
+<%- include('../partials/head.ejs') %>
+
 <h1>Skincare Journal</h1>
 
 <p><%= log.date %></p>
@@ -6,4 +8,4 @@
 
 <p><%= product.kind %>: <%= product.name %></p>
 
-<% } %>
+<% } %> <%- include('../partials/footer.ejs') %>

@@ -17,7 +17,7 @@ logRouter.get("/", (req, res) => {
         .then((products) => {
           console.log(logs);
           console.log(products);
-          res.render("../views/products/index.ejs", {
+          res.render("../views/logs/index.ejs", {
             logs: logs,
             products: products,
             tabTitle: "Log & Skincare",
@@ -46,10 +46,10 @@ logRouter.get("/:id", (req, res) => {
         .then((products) => {
           console.log(log);
           console.log(products);
-          res.render("../views/products/show.ejs", {
+          res.render("../views/logs/show.ejs", {
             log: log,
             products: products,
-            tabTitle: "Log & Skincare",
+            tabTitle: "Log & Skincare Journal",
           });
         });
     });
@@ -58,16 +58,15 @@ logRouter.get("/:id", (req, res) => {
 //===================
 //Edit GET / :id/edit
 //===================
-// logRouter.get("/:id/edit", (req, res) => {
-//   //   res.send("edit product with id " + req.params.id);
-//   Log.findById(req.params.id)
-//     .exec()
-//     .then((log) => {
-//       res.render("products/edit.ejs", {
-//           log: log,
-//       });
-//     });
-// });
+logRouter.get("/:id/edit", (req, res) => {
+  Log.findById(req.params.id)
+    .exec()
+    .then((log) => {
+      res.render("logs/edit.ejs", {
+        log: log,
+      });
+    });
+});
 
 //=============
 //CREATE POST/

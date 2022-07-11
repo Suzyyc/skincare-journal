@@ -1,0 +1,20 @@
+<%- include('../partials/head.ejs') %>
+
+<h1>Skincare Journal</h1>
+
+<p>Date: <%= log.date.toDateString() %></p>
+<p>Entry <br>
+  <%= log.description %></p>
+
+<% for (const product of products) {%>
+<p><%= product.kind %>: <%= product.name %></p>
+<% } %>
+
+<form action="/logs/<%= log.id %>?_method=DELETE" method="post">
+    <input type="submit" value="DELETE"/>
+  </form>
+  <a href="/logs/<%= log.id %>/edit">Update</a>
+<p><a href="/logs"/>Home</a></p>
+
+
+ <%- include('../partials/footer.ejs') %>

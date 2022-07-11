@@ -1,0 +1,11 @@
+<h1>Update Journal</h1>
+
+<form action="/logs/<%= log.id %>?_method=PUT" method="post">
+    <label for="entry">Entry</label>
+    <input type="text" name="entry" id="entry" value="<%= log.description %>" />
+
+    <input type="submit" value="Update Entry" />
+
+</form>
+
+    <p><a href="/logs"/>Home</a></p>

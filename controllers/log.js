@@ -10,30 +10,21 @@ const SkincareProducts = require("../models/skincare");
 logRouter.get("/", (req, res) => {
   Log.find()
     .exec()
-    .then(() => {
-      res.render("../views/products/index.ejs", {
-        tabTitle: "Skincare Journal",
-      });
+    .then((logs) => {
+      // console.log(logs);
+      SkincareProducts.find()
+        .exec()
+        .then((products) => {
+          console.log(logs);
+          console.log(products);
+          res.render("../views/products/index.ejs", {
+            logs: logs,
+            products: products,
+            tabTitle: "Log & Skincare",
+          });
+        });
     });
 });
-
-// logRouter.get("/", (req, res) => {
-//   Log.findById(req.params.id)
-//     .exec()
-//     .then((log) => {
-//       SkincareProducts.find({ _id: { $in: log.productIds } })
-//         .exec()
-//         .then((products) => {
-//           console.log(log);
-//           console.log(products);
-//           res.render("../views/products/index.ejs", {
-//             log: log,
-//             products: products,
-//             tabTitle: "Log & Skincare",
-//           });
-//         });
-//     });
-// });
 
 //============
 //NEW GET /new
@@ -81,7 +72,7 @@ logRouter.get("/:id", (req, res) => {
 //CREATE POST/
 //=============
 // {description: "", date: "", productIds: ["", ""]}
-// logRouter.post("/", (req, res) => {
+// logRouter.post("/logs", (req, res) => {
 //   Log.create(req.body).then((log) => {
 //     res.redirect("/" + log.id);
 //   });

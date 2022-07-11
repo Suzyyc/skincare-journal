@@ -2,6 +2,18 @@
 
 <h1>Skincare Journal</h1>
 <p>Journal Entries</p>
+
+<% for (const log of logs) {%>
+
+<p><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></p>
+<p><%= log.id %></p>
+
+<% } %>
+
 <p>Products</p>
 
-<%- include('../partials/footer.ejs') %>
+<% for (const product of products) {%>
+
+<p><%= product.kind %>: <%= product.name %></p>
+
+<% } %> <%- include('../partials/footer.ejs') %>

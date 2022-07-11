@@ -15,8 +15,8 @@ logRouter.get("/", (req, res) => {
       SkincareProduct.find()
         .exec()
         .then((products) => {
-          console.log(logs);
-          console.log(products);
+          // console.log(logs);
+          // console.log(products);
           res.render("../views/logs/index.ejs", {
             logs: logs,
             products: products,
@@ -40,12 +40,12 @@ logRouter.get("/:id", (req, res) => {
   Log.findById(req.params.id)
     .exec()
     .then((log) => {
-      console.log(log);
+      // console.log(log);
       SkincareProduct.find({ _id: { $in: log.productIds } })
         .exec()
         .then((products) => {
-          console.log(log);
-          console.log(products);
+          // console.log(log);
+          // console.log(products);
           res.render("../views/logs/show.ejs", {
             log: log,
             products: products,
@@ -62,9 +62,14 @@ logRouter.get("/:id/edit", (req, res) => {
   Log.findById(req.params.id)
     .exec()
     .then((log) => {
-      res.render("logs/edit.ejs", {
-        log: log,
-      });
+      SkincareProduct.find()
+        .exec()
+        .then((products) => {
+          res.render("logs/edit.ejs", {
+            log: log,
+            products: products,
+          });
+        });
     });
 });
 
@@ -81,13 +86,13 @@ logRouter.get("/:id/edit", (req, res) => {
 //================
 //UPDATE PUT /:id
 //================
-// logRouter.put("/:id", (req, res) => {
-//   Log.findByIdAndUpdate(req.params.id, req.body)
-//     .exec()
-//     .then(() => {
-//       res.redirect("/" + req.params.id);
-//     });
-// });
+logRouter.put("/:id", (req, res) => {
+  Log.findByIdAndUpdate(req.params.id, req.body)
+    .exec()
+    .then((newLog) => {
+      res.redirect(`/logs/${newLog.id}`);
+    });
+});
 
 //===================
 //DESTROY DELETE /;id

@@ -1,23 +1,26 @@
 <%- include('../partials/head.ejs') %>
 
 <h1>Skincare Journal</h1>
-<p>Journal Entries</p>
+    <p>Journal Entries</p>
+        <p><a href="/logs/new"/>New Summary</a></p>
 
-<p><a href="/logs/new"/>New Summary</a></p>
+    <% for (const log of logs) {%>
+        <ul>
+        <li><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+        </ul>
+    <% } %>
 
-<% for (const log of logs) {%>
+    <p>Products</p>
+    <% for (const product of products) {%>
+        <ul>
+        <li><%= product.kind %>: <%= product.name %>
+            <a href="/skincare/edit"/> Edit</a></li>
+            <form action="/skincare/<%= product.id %>?_method=DELETE" method="post">
+                <input type="submit" value="DELETE" />
+              </form>
+        </ul>
+    <% } %> 
 
-<p><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></p>
-<p><%= log.id %></p>
-
-<% } %>
-
-<p>Products</p>
-
-<% for (const product of products) {%>
-<p><%= product.kind %>: <%= product.name %></p>
-<% } %> 
-
-<p><a href="/skincare/new"/>New Product</a></p>
+    <p><a href="/skincare/new"/>New Product</a></p>
 
 <%- include('../partials/footer.ejs') %>

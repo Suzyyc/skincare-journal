@@ -8,7 +8,7 @@ const SkincareProduct = require("../models/skincare");
 //NEW GET /new
 //============
 skincareRouter.get("/new", (req, res) => {
-  res.render("../views/products/new.ejs", {
+  res.render("products/new.ejs", {
     tabTitle: "New Product",
   });
 });

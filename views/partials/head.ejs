@@ -8,5 +8,21 @@
     <title><%= tabTitle %></title>
     <style></style>
   </head>
-  <body></body>
+  <body>
+    <div class='container'>
+        <header>
+            <p><a href="/logs"/>Home</a></p>
+            <p>For those of us who are forgetful</p>
+            <nav>
+                <% if (currentUser) {%>
+                    <form action="/logout?_method=DELETE" method="post">
+                        <input class="button button-secondary" type="submit" value="Log Out" />
+                    </form>
+                <% } else { %>
+                    <a class="button button-secondary" href="/login">Log In</a>
+                <% } %>
+            </nav>
+        </header>
+        </div>
+  </body>
 </html>

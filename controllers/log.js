@@ -5,6 +5,15 @@ const kinds = require("../data/product-kinds");
 const Log = require(`../models/log`);
 const SkincareProduct = require("../models/skincare");
 
+const isLoggedIn = (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect("/login");
+  }
+  next();
+};
+
+logRouter.use(isLoggedIn);
+
 //============
 //Index GET /
 //============
@@ -20,7 +29,8 @@ logRouter.get("/", (req, res) => {
             product.kind = kind.label;
             return product;
           });
-          res.render("../views/logs/index.ejs", {
+          res.render("logs/index.ejs", {
+            currentUser: req.session.currentUser,
             logs: logs,
             products: mappedProducts,
             tabTitle: "Log & Skincare",
@@ -33,7 +43,7 @@ logRouter.get("/", (req, res) => {
 //NEW GET /new
 //============
 logRouter.get("/new", (req, res) => {
-  res.render("../views/logs/new.ejs", {
+  res.render("logs/new.ejs", {
     tabTitle: "New Journal Summary",
   });
 });
@@ -48,9 +58,10 @@ logRouter.get("/:id", (req, res) => {
       SkincareProduct.find({ _id: { $in: log.productIds } })
         .exec()
         .then((products) => {
-          res.render("../views/logs/show.ejs", {
+          res.render("logs/show.ejs", {
             log: log,
             products: products,
+            currentUser: req.session.currentUser,
             tabTitle: "Log & Skincare Journal",
           });
         });
@@ -70,6 +81,7 @@ logRouter.get("/:id/edit", (req, res) => {
           res.render("logs/edit.ejs", {
             log: log,
             products: products,
+            currentUser: req.session.currentUser,
             tabTitle: "Edit Journal Summary",
           });
         });

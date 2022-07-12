@@ -4,23 +4,23 @@
     <p>Journal Entries</p>
         <p><a href="/logs/new"/>New Summary</a></p>
 
-    <% for (const log of logs) {%>
         <ul>
-        <li><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+            <% for (const log of logs) {%>
+                <li><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+            <% } %>
         </ul>
-    <% } %>
 
     <p>Products</p>
-    <% for (const product of products) {%>
-        <ul>
-        <li><%= product.kind %>: <%= product.name %>
-            <a href="/skincare/edit"/> Edit</a></li>
-            <form action="/skincare/<%= product.id %>?_method=DELETE" method="post">
-                <input type="submit" value="DELETE" />
-              </form>
-        </ul>
-    <% } %> 
-
+    <ul>
+        <% for (const product of products) {%>
+            <li><%= product.kind %>: <%= product.name %>
+                <a href="/skincare/<%= product.id %>/edit"> Edit</a>
+                <form action="/skincare/<%= product.id %>?_method=DELETE" method="post">
+                    <input type="submit" value="DELETE" />
+                </form>
+            </li>
+        <% } %> 
+    </ul>
     <p><a href="/skincare/new"/>New Product</a></p>
 
 <%- include('../partials/footer.ejs') %>

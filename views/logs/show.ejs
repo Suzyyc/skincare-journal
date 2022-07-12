@@ -9,7 +9,7 @@
 </p>
 
 <% for (const product of products) {%>
-<p><%= product.kind %>: <%= product.name %></p>
+    <p><%= product.kind %>: <%= product.name %></p>
 <% } %>
 
 <form action="/logs/<%= log.id %>?_method=DELETE" method="post">

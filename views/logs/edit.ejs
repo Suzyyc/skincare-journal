@@ -15,20 +15,16 @@
 
   <% for (let i = 0; i < products.length ; i++) { const product = products[i] %>
 
-  <label for="productIds-<%= i %>"
-    ><%= product.kind %>: <%= product.name %></label
-  >
-  <input
+    <label for="productIds-<%= i %>"><%= product.kind %>: <%= product.name %></label>
+    <input
     type="checkbox"
     name="productIds[<%= i %>]"
     id="productIds-<%= i %>"
     value="<%= product._id %>"
-    <%
-    if
-    (log.productIds.includes(product._id))
-    {
-    %>
-  checked <% } %> /> <% } %>
+    <% if (log.productIds.includes(product._id)) { %>
+        checked 
+    <% } %> /> 
+  <% } %>
 </form>
 
 <%- include('../partials/footer.ejs') %>

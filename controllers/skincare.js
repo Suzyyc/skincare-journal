@@ -17,12 +17,23 @@ skincareRouter.get("/new", (req, res) => {
 //===================
 skincareRouter.get("/:id/edit", (req, res) => {
   //   res.send("edit product with id " + req.params.id);
+
+  const kinds = [
+    { value: "Cleanser", label: "Cleanser" },
+    { value: "Toner", label: "Toner" },
+    { value: "Serum", label: "Serum" },
+    { value: "Eye_Cream", label: "Eye Cream" },
+    { value: "Moisturiser", label: "Moisturiser" },
+    { value: "SPF", label: "SPF" },
+    { value: "Generic", label: "Generic" },
+  ];
   SkincareProduct.findById(req.params.id)
     .exec()
     .then((product) => {
       res.render("products/edit.ejs", {
         product: product,
         tabTitle: "Edit Product",
+        kinds: kinds,
       });
     });
 });
@@ -40,23 +51,23 @@ skincareRouter.post("/", (req, res) => {
 //================
 //UPDATE PUT /:id
 //================
-// skincareRouter.put("/:id", (req, res) => {
-//   SkincareProduct.findByIdAndUpdate(req.params.id, req.body)
-//     .exec()
-//     .then(() => {
-//       res.redirect("/" + req.params.id);
-//     });
-// });
+skincareRouter.put("/:id", (req, res) => {
+  SkincareProduct.findByIdAndUpdate(req.params.id, req.body)
+    .exec()
+    .then(() => {
+      res.redirect("/logs");
+    });
+});
 
 //===================
 //DESTROY DELETE /;id
 //===================
-// skincareRouter.delete("/:id", (req, res) => {
-//   SkincareProduct.findByIdAndDelete(req.params.id)
-//     .exec()
-//     .then(() => {
-//       res.redirect("/");
-//     });
-// });
+skincareRouter.delete("/:id", (req, res) => {
+  SkincareProduct.findByIdAndDelete(req.params.id)
+    .exec()
+    .then(() => {
+      res.redirect("/logs");
+    });
+});
 
 module.exports = skincareRouter;

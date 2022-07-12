@@ -1,5 +1,6 @@
 const express = require("express");
 const logRouter = express.Router();
+const kinds = require("../data/product-kinds");
 
 const Log = require(`../models/log`);
 const SkincareProduct = require("../models/skincare");
@@ -14,9 +15,14 @@ logRouter.get("/", (req, res) => {
       SkincareProduct.find()
         .exec()
         .then((products) => {
+          const mappedProducts = products.map((product) => {
+            const kind = kinds.find((kind) => product.kind === kind.value);
+            product.kind = kind.label;
+            return product;
+          });
           res.render("../views/logs/index.ejs", {
             logs: logs,
-            products: products,
+            products: mappedProducts,
             tabTitle: "Log & Skincare",
           });
         });

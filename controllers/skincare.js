@@ -1,5 +1,6 @@
 const express = require("express");
 const skincareRouter = express.Router();
+const kinds = require("../data/product-kinds");
 
 const SkincareProduct = require("../models/skincare");
 
@@ -17,16 +18,6 @@ skincareRouter.get("/new", (req, res) => {
 //===================
 skincareRouter.get("/:id/edit", (req, res) => {
   //   res.send("edit product with id " + req.params.id);
-
-  const kinds = [
-    { value: "Cleanser", label: "Cleanser" },
-    { value: "Toner", label: "Toner" },
-    { value: "Serum", label: "Serum" },
-    { value: "Eye_Cream", label: "Eye Cream" },
-    { value: "Moisturiser", label: "Moisturiser" },
-    { value: "SPF", label: "SPF" },
-    { value: "Generic", label: "Generic" },
-  ];
   SkincareProduct.findById(req.params.id)
     .exec()
     .then((product) => {

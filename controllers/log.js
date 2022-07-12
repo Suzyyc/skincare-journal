@@ -45,6 +45,7 @@ logRouter.get("/", (req, res) => {
 logRouter.get("/new", (req, res) => {
   res.render("logs/new.ejs", {
     tabTitle: "New Journal Summary",
+    currentUser: req.session.currentUser,
   });
 });
 
@@ -93,7 +94,9 @@ logRouter.get("/:id/edit", (req, res) => {
 //=============
 logRouter.post("/", (req, res) => {
   Log.create(req.body).then((log) => {
-    res.redirect("/logs/" + log.id);
+    res.redirect("/logs/" + log.id, {
+      currentUser: req.session.currentUser,
+    });
   });
 });
 
@@ -108,7 +111,9 @@ logRouter.put("/:id", (req, res) => {
   Log.findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then((newLog) => {
-      res.redirect(`/logs/${newLog.id}`);
+      res.redirect(`/logs/${newLog.id}`, {
+        currentUser: req.session.currentUser,
+      });
     });
 });
 

@@ -4,12 +4,22 @@ const kinds = require("../data/product-kinds");
 
 const SkincareProduct = require("../models/skincare");
 
+const isLoggedIn = (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect("/login");
+  }
+  next();
+};
+
+skincareRouter.use(isLoggedIn);
+
 //============
 //NEW GET /new
 //============
 skincareRouter.get("/new", (req, res) => {
   res.render("products/new.ejs", {
     tabTitle: "New Product",
+    currentUser: req.session.currentUser,
   });
 });
 
@@ -22,6 +32,7 @@ skincareRouter.get("/:id/edit", (req, res) => {
     .exec()
     .then((product) => {
       res.render("products/edit.ejs", {
+        currentUser: req.session.currentUser,
         product: product,
         tabTitle: "Edit Product",
         kinds: kinds,
@@ -35,7 +46,9 @@ skincareRouter.get("/:id/edit", (req, res) => {
 skincareRouter.post("/", (req, res) => {
   console.log(req.body);
   SkincareProduct.create(req.body).then(() => {
-    res.redirect("/logs");
+    res.redirect("/logs", {
+      currentUser: req.session.currentUser,
+    });
   });
 });
 
@@ -46,7 +59,7 @@ skincareRouter.put("/:id", (req, res) => {
   SkincareProduct.findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then(() => {
-      res.redirect("/logs");
+      res.redirect("/logs", { currentUser: req.session.currentUser });
     });
 });
 

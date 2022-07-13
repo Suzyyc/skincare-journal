@@ -1,5 +1,7 @@
 <%- include('../partials/head.ejs') %>
 
+<p><a href="/logs"/>Back</a></p>
+
 <form action="/skincare/<%= product.id %>?_method=PUT" method="post">
   <label for="name">Name</label>
   <input type="text" id="name" value="<%= product.name %>" />

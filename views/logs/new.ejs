@@ -1,15 +1,34 @@
 <%- include('../partials/head.ejs') %>
 
 <h1>New Summary</h1>
-
+<p><a href="/logs"/>Back</a></p>
 <form action="/logs" method="post">
   <label for="date">Date</label>
   <input type="date" name="date" id="date" />
 
-  <label for="description">Summary</label>
-  <input type="text" name="description" id="description" />
+ 
+  <form action="/skincare" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="Product Name"/>
+  
+    <label for="kind">Type</label>
+    <select name="kind" id="kind">
+      <option value="">Please choose an option</option>
+      <option value="Cleanser">Cleanser</option>
+      <option value="Toner">Toner</option>
+      <option value="Serum">Serum</option>
+      <option value="Eye_Cream">Eye Cream</option>
+      <option value="Moisturiser">Moisturiser</option>
+      <option value="SPF">SPF</option>
+      <option value="Generic">Generic</option>
+    </select>
 
-  <input type="submit" value="New Summary" />
+    <label for="description">Summary</label>
+    <input type="text" name="description" id="description" />
+  
+  
+    <input type="submit" value="Create" />
+  </form>
 </form>
 
 <%- include('../partials/footer.ejs') %>

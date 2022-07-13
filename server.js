@@ -32,6 +32,7 @@ app.use(
     },
   })
 );
+
 app.use(flash());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));

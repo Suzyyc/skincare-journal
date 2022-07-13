@@ -9,6 +9,7 @@ const isLoggedIn = (req, res, next) => {
   if (!req.session.currentUser) {
     return res.redirect("/login");
   }
+  req.app.locals.currentUser = req.session.currentUser;
   next();
 };
 
@@ -30,7 +31,6 @@ logRouter.get("/", (req, res) => {
             return product;
           });
           res.render("logs/index.ejs", {
-            currentUser: req.session.currentUser,
             logs: logs,
             products: mappedProducts,
             tabTitle: "Log & Skincare",
@@ -45,7 +45,6 @@ logRouter.get("/", (req, res) => {
 logRouter.get("/new", (req, res) => {
   res.render("logs/new.ejs", {
     tabTitle: "New Journal Summary",
-    currentUser: req.session.currentUser,
   });
 });
 
@@ -62,7 +61,6 @@ logRouter.get("/:id", (req, res) => {
           res.render("logs/show.ejs", {
             log: log,
             products: products,
-            currentUser: req.session.currentUser,
             tabTitle: "Log & Skincare Journal",
           });
         });
@@ -82,7 +80,6 @@ logRouter.get("/:id/edit", (req, res) => {
           res.render("logs/edit.ejs", {
             log: log,
             products: products,
-            currentUser: req.session.currentUser,
             tabTitle: "Edit Journal Summary",
           });
         });
@@ -94,9 +91,7 @@ logRouter.get("/:id/edit", (req, res) => {
 //=============
 logRouter.post("/", (req, res) => {
   Log.create(req.body).then((log) => {
-    res.redirect("/logs/" + log.id, {
-      currentUser: req.session.currentUser,
-    });
+    res.redirect("/logs/" + log.id);
   });
 });
 
@@ -111,9 +106,7 @@ logRouter.put("/:id", (req, res) => {
   Log.findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then((newLog) => {
-      res.redirect(`/logs/${newLog.id}`, {
-        currentUser: req.session.currentUser,
-      });
+      res.redirect(`/logs/${newLog.id}`);
     });
 });
 

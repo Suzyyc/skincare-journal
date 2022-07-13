@@ -12,19 +12,26 @@
   />
 
   <input type="submit" value="Update Entry" />
-
-  <% for (let i = 0; i < products.length ; i++) { const product = products[i] %>
-
-    <label for="productIds-<%= i %>"><%= product.kind %>: <%= product.name %></label>
-    <input
-    type="checkbox"
-    name="productIds[<%= i %>]"
-    id="productIds-<%= i %>"
-    value="<%= product._id %>"
-    <% if (log.productIds.includes(product._id)) { %>
-        checked 
-    <% } %> /> 
-  <% } %>
+    <ul>
+        <% for (let i = 0; i < products.length ; i++) { const product = products[i]
+        %>
+        <li>
+            <input
+                type="checkbox"
+                name="productIds[<%= i %>]"
+                id="productIds-<%= i %>"
+                value="<%= product._id %>"
+                <%
+                if
+                (log.productIds.includes(product._id))
+                {
+                %>
+            checked <% } %> />
+            <label for="productIds-<%= i %>"
+                ><%= product.kind %>: <%= product.name %></label>
+        </li>
+        <% } %>
+    </ul>
 </form>
 
 <%- include('../partials/footer.ejs') %>

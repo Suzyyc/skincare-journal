@@ -7,28 +7,28 @@
   <input type="date" name="date" id="date" />
 
  
-  <form action="/skincare" method="post">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" value="Product Name"/>
-  
-    <label for="kind">Type</label>
-    <select name="kind" id="kind">
-      <option value="">Please choose an option</option>
-      <option value="Cleanser">Cleanser</option>
-      <option value="Toner">Toner</option>
-      <option value="Serum">Serum</option>
-      <option value="Eye_Cream">Eye Cream</option>
-      <option value="Moisturiser">Moisturiser</option>
-      <option value="SPF">SPF</option>
-      <option value="Generic">Generic</option>
-    </select>
+  <p>Products</p>
+  <ul>
+    <% for (let i = 0; i < products.length ; i++) { const product = products[i] %>
+        <li>
+            <input
+            type="checkbox"
+            name="productIds[<%= i %>]"
+            id="productIds-<%= i %>"
+            value="<%= product._id %>" /> 
+            <label for="productIds-<%= i %>">
+            <%= product.kind %>: <%= product.name %></label>
+        </li>
+    <% } %>
+  </ul>
 
-    <label for="description">Summary</label>
-    <input type="text" name="description" id="description" />
+
   
+    <label for="description">Summary</label>
+    <br>
+     <textarea rows="5" name="description" id="description"> </textarea>
   
     <input type="submit" value="Create" />
-  </form>
 </form>
 
 <%- include('../partials/footer.ejs') %>

@@ -1,20 +1,23 @@
 <%- include('../partials/head.ejs') %>
 
 <h1>Skincare Journal</h1>
-<p><a href="/logs"/>Back</a></p>
-<p>Date: <%= log.date.toDateString() %></p>
-<p>
-  Summary <br />
-  <%= log.description %>
-</p>
+  <p><a href="/logs"/>Back</a></p>
+  <p>Date: <%= log.date.toDateString() %></p>
 
+  <p>Skincare Products</p>
+  <hr>
 <% for (const product of products) {%>
     <p><%= product.kind %>: <%= product.name %></p>
 <% } %>
 
-<form action="/logs/<%= log.id %>?_method=DELETE" method="post">
-  <input type="submit" value="DELETE" />
-</form>
+  <p>
+    Summary <br />
+    <%= log.description %>
+  </p>
+
+  <form action="/logs/<%= log.id %>?_method=DELETE" method="post">
+    <input type="submit" value="DELETE" />
+  </form>
 <a href="/logs/<%= log.id %>/edit">Update</a>
 
 <%- include('../partials/footer.ejs') %>

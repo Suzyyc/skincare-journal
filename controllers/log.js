@@ -15,6 +15,15 @@ const isLoggedIn = (req, res, next) => {
 
 logRouter.use(isLoggedIn);
 
+const mapProducts = (products, kinds) => {
+  const mappedProducts = products.map((product) => {
+    const kind = kinds.find((kind) => product.kind === kind.value);
+    product.kind = kind.label;
+    return product;
+  });
+  return mappedProducts;
+};
+
 //============
 //Index GET /
 //============
@@ -25,14 +34,9 @@ logRouter.get("/", (req, res) => {
       SkincareProduct.find()
         .exec()
         .then((products) => {
-          const mappedProducts = products.map((product) => {
-            const kind = kinds.find((kind) => product.kind === kind.value);
-            product.kind = kind.label;
-            return product;
-          });
           res.render("logs/index.ejs", {
             logs: logs,
-            products: mappedProducts,
+            products: mapProducts(products, kinds),
             tabTitle: "Log & Skincare",
           });
         });
@@ -43,9 +47,15 @@ logRouter.get("/", (req, res) => {
 //NEW GET /new
 //============
 logRouter.get("/new", (req, res) => {
-  res.render("logs/new.ejs", {
-    tabTitle: "New Journal Summary",
-  });
+  SkincareProduct.find()
+    .exec()
+    .then((products) => {
+      res.render("logs/new.ejs", {
+        tabTitle: "New Journal Summary",
+        kinds: kinds,
+        products: mapProducts(products, kinds),
+      });
+    });
 });
 
 //=============
@@ -60,7 +70,7 @@ logRouter.get("/:id", (req, res) => {
         .then((products) => {
           res.render("logs/show.ejs", {
             log: log,
-            products: products,
+            products: mapProducts(products, kinds),
             tabTitle: "Log & Skincare Journal",
           });
         });
@@ -79,7 +89,7 @@ logRouter.get("/:id/edit", (req, res) => {
         .then((products) => {
           res.render("logs/edit.ejs", {
             log: log,
-            products: products,
+            products: mapProducts(products, kinds),
             tabTitle: "Edit Journal Summary",
           });
         });

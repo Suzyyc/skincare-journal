@@ -29,10 +29,12 @@ const mapProducts = (products, kinds) => {
 //Index GET /
 //============
 logRouter.get("/", (req, res) => {
-  Log.find({}, null, { sort: { date: -1 } })
+  Log.find({ userId: req.session.currentUser._id }, null, {
+    sort: { date: -1 },
+  })
     .exec()
     .then((logs) => {
-      SkincareProduct.find()
+      SkincareProduct.find({ userId: req.session.currentUser._id })
         .exec()
         .then((products) => {
           res.render("logs/index.ejs", {
@@ -48,7 +50,7 @@ logRouter.get("/", (req, res) => {
 //NEW GET /new
 //============
 logRouter.get("/new", (req, res) => {
-  SkincareProduct.find()
+  SkincareProduct.find({ userId: req.session.currentUser._id })
     .exec()
     .then((products) => {
       res.render("logs/new.ejs", {

@@ -6,6 +6,7 @@ const Log = require(`../models/log`);
 const SkincareProduct = require("../models/skincare");
 
 const isLoggedIn = (req, res, next) => {
+  console.log(req.session.currentUser);
   if (!req.session.currentUser) {
     return res.redirect("/login");
   }
@@ -68,6 +69,7 @@ logRouter.get("/:id", (req, res) => {
       SkincareProduct.find({ _id: { $in: log.productIds } })
         .exec()
         .then((products) => {
+          console.log(log);
           res.render("logs/show.ejs", {
             log: log,
             products: mapProducts(products, kinds),
@@ -100,6 +102,7 @@ logRouter.get("/:id/edit", (req, res) => {
 //CREATE POST/
 //=============
 logRouter.post("/", (req, res) => {
+  req.body.userId = req.session.currentUser._id;
   Log.create(req.body).then((log) => {
     res.redirect("/logs/" + log.id);
   });

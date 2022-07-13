@@ -27,7 +27,6 @@ skincareRouter.get("/new", (req, res) => {
 //Edit GET / :id/edit
 //===================
 skincareRouter.get("/:id/edit", (req, res) => {
-  //   res.send("edit product with id " + req.params.id);
   SkincareProduct.findById(req.params.id)
     .exec()
     .then((product) => {
@@ -43,7 +42,7 @@ skincareRouter.get("/:id/edit", (req, res) => {
 //CREATE POST/
 //=============
 skincareRouter.post("/", (req, res) => {
-  console.log(req.body);
+  req.body.userId = req.session.currentUser._id;
   SkincareProduct.create(req.body).then(() => {
     res.redirect("/logs");
   });

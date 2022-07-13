@@ -7,6 +7,7 @@ const journalLogSchema = new Schema(
     date: Date,
     description: String,
     productIds: [String],
+    userId: String,
   },
   { timestamps: true }
 );

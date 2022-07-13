@@ -17,6 +17,7 @@ const SkincareSchema = new Schema(
       ],
       default: "Generic",
     },
+    userId: String,
   },
   { timestamps: true }
 );

@@ -1,24 +1,24 @@
 <%- include('../partials/head.ejs') %>
 
-<h1>Skincare Journal</h1>
+<h1 class="d-flex justify-content-center display-1 mt-3">Skincare Journal</h1>
 <% if (currentUser) {%>
-<h2>Welcome Back <%= currentUser.username%></h2>
+<h2 class="display-3">Welcome Back <%= currentUser.username%></h2>
 <% } %>
-    <p>Journal Entries</p>
-        <p><a class="btn btn-primary btn-sm" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
+    <p class="display-3">Journal Entries</p>
+        <p><a class="btn btn-primary btn-md" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
 
         <ul class="list-group list-group-flush">
             <% for (const log of logs) {%>
-            <li class="list-group-item"><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+            <li class="fs-3 text list-group-item"><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
             <% } %>
           </ul>
           <br>
 
-    <p>Products</p>
+    <p class="display-3">Products</p>
     <ul>
         <% for (const product of products) {%>
-            <li><%= product.kind %>: <%= product.name %>
-                <a class="btn btn-light btn-sm" href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
+            <li class="fs-3 text"><%= product.kind %>: <%= product.name %>
+                <a class="btn btn-light btn-md" href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
                 <form action="/skincare/<%= product.id %>?_method=DELETE" method="post">
                     <button class="btn btn-light btn-sm" type="submit"> <i class="bi bi-trash"></i></button>
                    
@@ -26,6 +26,6 @@
             </li>
         <% } %> 
     </ul>
-    <p><a class="btn btn-outline-primary" href="/skincare/new"/>New Product</a></p>
+    <p><a class="btn btn-outline-primary btn-md" href="/skincare/new"/>New Product</a></p>
 
 <%- include('../partials/footer.ejs') %>

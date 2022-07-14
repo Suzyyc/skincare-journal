@@ -20,7 +20,9 @@
     <div class='container'>
         <header class="navbar">
             <img class="head-pic" src="/img/birgith-roosipuu-PWPe-x1Ygtw-unsplash.jpg">
-            <p><a href="/logs"/>Home</a></p>
+            <% if (currentUser) {%>
+                <p><a href="/logs"/>Home</a></p>
+                <% } %>
             <h4>For those of us who are forgetful</h4>
             <nav>
                 <% if (currentUser) {%>

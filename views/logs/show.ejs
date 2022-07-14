@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-3"><a href="/logs"/><i class="bi bi-arrow-left-short"></i>Back</a></div>
     <div class="col-7">
+      
       <h1>Skincare Journal</h1>
     </div>
     <div class="col-2">
@@ -12,26 +13,33 @@
     </div>
   </div>
 
-  <p>Date: <%= log.date.toDateString() %></p>
 
-    <div class="row">
-      <h2>Skincare Products</h2>
-      <hr>
-    <% for (const product of products) {%>
-        <p><%= product.kind %>: <%= product.name %></p>
-    <% } %>
-    </div>
-    
-    <div class="row">
-      <h2>Summary</h2>
-      <hr>
-      <p><%= log.description %></p>
-    </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>Date: <%= log.date.toDateString() %></h3>
 
-    <div class="d-flex">
+      <div class="row">
+        <h2>Skincare Products</h2>
+        <hr>
+      <% for (const product of products) {%>
+          <p><%= product.kind %>: <%= product.name %></p>
+      <% } %>
+      </div>
       
-      <a class="btn btn-primary" href="/logs/<%= log.id %>/edit">Update</a>
-    </div>  
+      <div class="row">
+        <h2>Summary</h2>
+        <hr>
+        <p><%= log.description %></p>
+      </div>
+  
+      <div class="d-flex">
+        
+        <a class="btn btn-primary btn-md" href="/logs/<%= log.id %>/edit">Edit</a>
+      </div>  
+    </div>
+  </div>
+
+ 
 </div>
 
 <%- include('../partials/footer.ejs') %>

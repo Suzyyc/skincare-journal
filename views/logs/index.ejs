@@ -6,35 +6,46 @@
     <% if (currentUser) {%>
         <h2 class="display-3 ">Welcome Back <%= currentUser.username%></h2>
     <% } %>
-    <div class="row g-sm-5">
+    <div class="row g-sm-2">
       
         <div class="col-12 col-sm-6 mb-4 mb-sm-0">
-            <p class="display-3">Journal Entries</p>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title display-4">Journal Entries</h5>
             <p><a class="btn btn-primary btn-md" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
 
-            <ul class="list-group list-group-flush">
-                <% for (const log of logs) {%>
-                <li class="fs-3 text list-group-item"><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
-                <% } %>
-            </ul>
+                    <ul class="list-group list-group-flush">
+                        <% for (const log of logs) {%>
+                        <li class="fs-5 text list-group-item"><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+                        <% } %>
+                    </ul>
+                </div>
+              </div>
         </div>
 
         <div class="col-12 col-sm-6">
-            <p class="display-3">Products</p>
-            <ul class="ps-0">
-                <% for (const product of products) {%>
-                    <li class="fs-3 text mb-2 d-flex justify-content-between">
-                        <%= product.kind %>: <%= product.name %>
-                        <div class="d-flex">
-                            <a class="btn btn-light" href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
-                            <form class="" action="/skincare/<%= product.id %>?_method=DELETE" method="post">
-                                <button class="btn btn-light " type="submit"> <i class="bi bi-trash"></i></button>
-                            </form>
-                        </div>
-                    </li>
-                <% } %> 
-            </ul>
-            <p><a class="btn btn-outline-primary btn-md" href="/skincare/new"/>New Product</a></p>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title display-2">Products</h5>
+                  <ul class="ps-0">
+                    <% for (const product of products) {%>
+                        <li class="fs-5 text mb-2 d-flex justify-content-between">
+                            <%= product.kind %>: <%= product.name %>
+                            <div class="d-flex">
+                                <div>
+                                    <a class="btn btn-light" href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
+                                </div>  
+                                <form class="" action="/skincare/<%= product.id %>?_method=DELETE" method="post">
+                                    <button class="btn btn-light " type="submit"> <i class="bi bi-trash"></i></button>
+                                </form>
+                                
+                            </div>
+                        </li>
+                    <% } %> 
+                </ul>
+                <p><a class="btn btn-outline-primary btn-md" href="/skincare/new"/>New Product</a></p>
+                </div>
+              </div>
         </div>
     </div>
 </div>

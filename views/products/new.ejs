@@ -1,26 +1,26 @@
 <%- include('../partials/head.ejs') %>
+<div class="container">
+    <h2>New Product</h2>
 
-<h1>New Product</h1>
+    <p><i class="bi bi-arrow-left-short"></i><a href="/logs"/>Back</a></p>
 
-<p><i class="bi bi-arrow-left-short"></i><a href="/logs"/>Back</a></p>
+    <form action="/skincare" method="post">
+    <label class="display-6 mb-2"for="name">Name:</label>
+    <input class="form-control" type="text" name="name" id="name" />
 
-<form action="/skincare" method="post">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name" />
+    <label class="display-6 mb-2" for="kind">Type</label>
+    <select  class="form-select" name="kind" id="kind">
+        <option value="">Please choose an option</option>
+        <option value="Cleanser">Cleanser</option>
+        <option value="Toner">Toner</option>
+        <option value="Serum">Serum</option>
+        <option value="Eye_Cream">Eye Cream</option>
+        <option value="Moisturiser">Moisturiser</option>
+        <option value="SPF">SPF</option>
+        <option value="Generic">Generic</option>
+    </select>
 
-  <label for="kind">Type</label>
-  <select name="kind" id="kind">
-    <option value="">Please choose an option</option>
-    <option value="Cleanser">Cleanser</option>
-    <option value="Toner">Toner</option>
-    <option value="Serum">Serum</option>
-    <option value="Eye_Cream">Eye Cream</option>
-    <option value="Moisturiser">Moisturiser</option>
-    <option value="SPF">SPF</option>
-    <option value="Generic">Generic</option>
-  </select>
-
-  <input class="btn btn-outline-dark" type="submit" value="Create" />
-</form>
-
+    <input class=" mt-2 btn btn-outline-dark" type="submit" value="Create" />
+    </form>
+</div>
 <%- include('../partials/footer.ejs') %>

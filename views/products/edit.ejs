@@ -1,22 +1,24 @@
 <%- include('../partials/head.ejs') %>
 
-<p><a  href="/logs"/><i class="bi bi-arrow-left-short"></i>Back</a></p>
+<div class="container">
+    <p><a  href="/logs"/><i class="bi bi-arrow-left-short"></i>Back</a></p>
 
-<form action="/skincare/<%= product.id %>?_method=PUT" method="post">
-  <label for="name">Name</label>
-  <input type="text" id="name" value="<%= product.name %>" />
+    <form action="/skincare/<%= product.id %>?_method=PUT" method="post">
+    <label class="display-6 mb-2" for="name">Name</label>
+    <input class="form-control" type="text" id="name" value="<%= product.name %>" />
 
-  <label for="kind">Type</label>
-  <select name="kind" id="kind">
-    <% for (const kind of kinds) { %>
-        <option value="<%= kind.value %>" 
-            <% if (kind.value === product.kind) { %>
-                selected
-            <% } %>
-        ><%= kind.label %></option>
-    <% } %>
-  </select>
+    <label class="display-6 mb-2" for="kind">Type</label>
+    <select class="form-select" name="kind" id="kind">
+        <% for (const kind of kinds) { %>
+            <option value="<%= kind.value %>" 
+                <% if (kind.value === product.kind) { %>
+                    selected
+                <% } %>
+            ><%= kind.label %></option>
+        <% } %>
+    </select>
 
-  <input class="btn btn-outline-dark" type="submit" value="Update" />
-</form>
+    <input class=" mt-2 btn btn-outline-dark" type="submit" value="Update" />
+    </form>
+</div>
 <%- include('../partials/footer.ejs') %>

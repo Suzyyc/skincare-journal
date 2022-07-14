@@ -4,11 +4,11 @@
 
 <div class="container">
     <% if (currentUser) {%>
-        <h2 class="display-3">Welcome Back <%= currentUser.username%></h2>
+        <h2 class="display-3 ">Welcome Back <%= currentUser.username%></h2>
     <% } %>
-    <div class="row g-5">
+    <div class="row g-sm-5">
       
-        <div class="col-12 col-sm-6">
+        <div class="col-12 col-sm-6 mb-4 mb-sm-0">
             <p class="display-3">Journal Entries</p>
             <p><a class="btn btn-primary btn-md" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
 
@@ -27,7 +27,7 @@
                         <%= product.kind %>: <%= product.name %>
                         <div class="d-flex">
                             <a class="btn btn-light" href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
-                            <form class="ms-2" action="/skincare/<%= product.id %>?_method=DELETE" method="post">
+                            <form class="" action="/skincare/<%= product.id %>?_method=DELETE" method="post">
                                 <button class="btn btn-light " type="submit"> <i class="bi bi-trash"></i></button>
                             </form>
                         </div>

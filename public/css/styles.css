@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: #3d6d79;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  color: #3d6d79;
 }
 
 .main {
@@ -17,13 +19,18 @@ body {
 
 .btn-primary {
   --bs-btn-bg: none;
-  --bs-btn-border-color: black;
-  --bs-btn-color: black;
+  --bs-btn-border-color: #3d6d79;
+  --bs-btn-color: #3d6d79;
 }
 
 .btn-outline-primary {
-  --bs-btn-border-color: black;
-  --bs-btn-color: black;
+  --bs-btn-border-color: #3d6d79;
+  --bs-btn-color: #3d6d79;
+}
+
+.btn-outline-dark {
+  --bs-btn-border-color: #3d6d79;
+  --bs-btn-color: #3d6d79;
 }
 
 :root {
@@ -41,7 +48,7 @@ li {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #3d6d79;
 }
 a:hover {
   color: #3d6d79;

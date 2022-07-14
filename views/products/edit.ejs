@@ -5,7 +5,7 @@
 
     <form action="/skincare/<%= product.id %>?_method=PUT" method="post">
     <label class="display-6 mb-2" for="name">Name</label>
-    <input class="form-control" type="text" id="name" value="<%= product.name %>" />
+    <input class="form-control" type="text" id="name" name="name" value="<%= product.name %>" />
 
     <label class="display-6 mb-2" for="kind">Type</label>
     <select class="form-select" name="kind" id="kind">
@@ -18,7 +18,7 @@
         <% } %>
     </select>
 
-    <input class=" mt-2 btn btn-outline-dark" type="submit" value="Update" />
+    <input class="mt-2 btn btn-outline-dark" type="submit" value="Update" />
     </form>
 </div>
 <%- include('../partials/footer.ejs') %>

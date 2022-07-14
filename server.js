@@ -38,6 +38,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
+app.use("/", (req, res) => {
+  res.redirect("/logs");
+});
+
 app.use("/", sessionsController);
 app.use("/users", usersController);
 app.use("/skincare", skincareRouter);

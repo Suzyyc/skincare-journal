@@ -39,7 +39,7 @@ app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 app.use("/", (req, res) => {
-  res.redirect("/logs");
+  res.redirect("/login");
 });
 
 app.use("/", sessionsController);

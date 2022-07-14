@@ -2,26 +2,24 @@
      
 
 
-<div class="form-container">
+<div class="container">
   <h1 class="d-flex justify-content-center mt-4">Your Personal Skincare Journal</h1>
-  <br />
-    <div class="">
-      <h2>Login</h2>
-      <h4>Please enter your username and password</h4>
+  <div class="row col-sm-6 offset-sm-3 col-md-4 offset-md-4">
+    <h2>Login</h2>
 
-        <div class="flash-messages">
-          <% if (messages.success) { %> <% for (let msg of messages.success) { %>
-          <p class="success"><%= msg %></p>
-          <% } %> <% } %> <% if (messages.info) { %> <% for (let msg of messages.info)
-          { %>
-          <p class="info"><%= msg %></p>
-          <% } %> <% } %> <% if (messages.error) { %> <% for (let msg of
-          messages.error) { %>
-          <p class="error"><%= msg %></p>
-          <% } %> <% } %>
-        </div>
-
-          <form class="row" action="<%= baseUrl %>/login" method="post">
+      <div class="flash-messages">
+        <% if (messages.success) { %> <% for (let msg of messages.success) { %>
+        <p class="success"><%= msg %></p>
+        <% } %> <% } %> <% if (messages.info) { %> <% for (let msg of messages.info)
+        { %>
+        <p class="info"><%= msg %></p>
+        <% } %> <% } %> <% if (messages.error) { %> <% for (let msg of
+        messages.error) { %>
+        <p class="error"><%= msg %></p>
+        <% } %> <% } %>
+      </div>
+      <form class="container" action="<%= baseUrl %>/login" method="post">
+          <div class="row">
             <div class="col-12">
               <label class="form-label" for="username">Username </label>
               <input class="form-control" type="text" name="username" id="username" required />
@@ -34,11 +32,12 @@
             <div class="col-12 mt-4">
               <input class="form-control btn btn-primary" type="submit" value="Login" />
             </div>
-          </form>
-          <div class="mt-2">
-              Don't have an account yet?
-              <a href="/users/signup">Create one</a>
-            </div>
+        </div>
+      </form>
+      <div class="mt-2">
+          Don't have an account yet?
+          <a href="/users/signup">Create one</a>
+      </div>
     </div>
   </body>
 </div>

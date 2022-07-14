@@ -1,25 +1,37 @@
 <%- include('../partials/head.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-3"><a href="/logs"/><i class="bi bi-arrow-left-short"></i>Back</a></div>
+    <div class="col-7">
+      <h1>Skincare Journal</h1>
+    </div>
+    <div class="col-2">
+      <form action="/logs/<%= log.id %>?_method=DELETE" method="post">
+        <button class="btn btn-light btn-sm" type="submit"> <i class="bi bi-trash"></i></button>
+      </form>
+    </div>
+  </div>
 
-<h1>Skincare Journal</h1>
-<p><a href="/logs"/><i class="bi bi-arrow-left-short"></i>Back</a></p>
   <p>Date: <%= log.date.toDateString() %></p>
 
-  <p>Skincare Products</p>
-  <hr>
-<% for (const product of products) {%>
-    <p><%= product.kind %>: <%= product.name %></p>
-<% } %>
-<br>
+    <div class="row">
+      <h2>Skincare Products</h2>
+      <hr>
+    <% for (const product of products) {%>
+        <p><%= product.kind %>: <%= product.name %></p>
+    <% } %>
+    </div>
+    
+    <div class="row">
+      <h2>Summary</h2>
+      <hr>
+      <p><%= log.description %></p>
+    </div>
 
-  <p>
-    Summary <br />
-    <hr>
-    <%= log.description %>
-  </p>
-
-  <form action="/logs/<%= log.id %>?_method=DELETE" method="post">
-    <button class="btn btn-light btn-sm" type="submit"> <i class="bi bi-trash"></i></button>
-  </form>
-<a class="btn btn-primary" href="/logs/<%= log.id %>/edit">Update</a>
+    <div class="d-flex">
+      
+      <a class="btn btn-primary" href="/logs/<%= log.id %>/edit">Update</a>
+    </div>  
+</div>
 
 <%- include('../partials/footer.ejs') %>

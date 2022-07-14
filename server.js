@@ -38,14 +38,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
-// app.use("/", (req, res) => {
-//   res.redirect("/login");
-// });
-
 app.use("/", sessionsController);
 app.use("/users", usersController);
 app.use("/skincare", skincareRouter);
 app.use("/logs", logRouter);
+
+app.use("/", (req, res) => {
+  res.redirect("/login");
+});
 
 mongoose.connect(dbURL, () => {
   console.log("connected to MongoDB");

@@ -5,7 +5,7 @@
 <h2>Welcome Back <%= currentUser.username%></h2>
 <% } %>
     <p>Journal Entries</p>
-        <p><a href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
+        <p><a class="btn btn-primary" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
 
         <ul>
             <% for (const log of logs) {%>
@@ -17,14 +17,14 @@
     <ul>
         <% for (const product of products) {%>
             <li><%= product.kind %>: <%= product.name %>
-                <a href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
+                <a class="btn btn-light btn-sm" href="/skincare/<%= product.id %>/edit"> <i class="bi bi-pencil"></i></a>
                 <form action="/skincare/<%= product.id %>?_method=DELETE" method="post">
-                    <input type="submit" value="DELETE" /> 
-                    <i class="bi bi-trash"></i>
+                    <button class="btn btn-light btn-sm" type="submit"> <i class="bi bi-trash"></i></button>
+                   
                 </form>
             </li>
         <% } %> 
     </ul>
-    <p><a href="/skincare/new"/>New Product</a></p>
+    <p><a class="btn btn-outline-primary" href="/skincare/new"/>New Product</a></p>
 
 <%- include('../partials/footer.ejs') %>

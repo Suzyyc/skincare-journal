@@ -17,22 +17,29 @@
     <style></style>
   </head>
   <body>
-    <div class='container'>
-        <header class="navbar">
-            <img class="head-pic" src="/img/birgith-roosipuu-PWPe-x1Ygtw-unsplash.jpg">
-            <% if (currentUser) {%>
-                <p><a href="/logs"/>Home</a></p>
-                <% } %>
-            <h4>For those of us who are forgetful</h4>
-            <nav>
+    <header>
+        <div class="container my-2">
+            <nav class="row">
                 <% if (currentUser) {%>
-                    <form action="/logout?_method=DELETE" method="post">
-                        <input class="button button-secondary" type="submit" value="Log Out" />
-                    </form>
-                <% } else { %>
-                    <a class="button button-secondary" href="/login">Log In</a>
+                    <div class="col d-flex justify-content-center align-items-center"><a href="/logs"/><i class="bi bi-house"></i>Home</a></div>
+                <% } %>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <img class="head-pic" src="/img/birgith-roosipuu-PWPe-x1Ygtw-unsplash.jpg">
+                </div>
+                <% if (currentUser) {%>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <form  action="/logout?_method=DELETE" method="post">
+                            <input class="btn btn-outline-dark" type="submit" value="Logout" />
+                        </form>
+                    </div>
                 <% } %>
             </nav>
-        </header>
+            
+            <h4 class="d-flex justify-content-center mt-2 ">For those of us who are forgetful</h4> 
+        </div>
+    </header>
+   
+    <div class='container'>
+    <div class="main">
 
 

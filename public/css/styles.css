@@ -6,7 +6,17 @@
 
 body {
   font-family: "Cormorant", serif;
+  /* background-color: #ffeddb; */
+  margin: none;
 }
+
+header {
+  background-color: white;
+}
+
+/* .container {
+  margin: none;
+} */
 
 h1,
 header h4 {
@@ -23,10 +33,8 @@ a {
 
 .head-pic {
   float: left;
-  margin-left: 125px;
-  margin-top: 20px;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
   overflow: hidden;
 }

@@ -3,40 +3,43 @@
 
 
 <div class="form-container">
-  <h1>Your Personal Skincare Journal</h1>
+  <h1 class="d-flex justify-content-center mt-4">Your Personal Skincare Journal</h1>
   <br />
-  <h2>Log In</h2>
+    <div class="">
+      <h2>Login</h2>
+      <h4>Please enter your username and password</h4>
 
-  <div class="flash-messages">
-    <% if (messages.success) { %> <% for (let msg of messages.success) { %>
-    <p class="success"><%= msg %></p>
-    <% } %> <% } %> <% if (messages.info) { %> <% for (let msg of messages.info)
-    { %>
-    <p class="info"><%= msg %></p>
-    <% } %> <% } %> <% if (messages.error) { %> <% for (let msg of
-    messages.error) { %>
-    <p class="error"><%= msg %></p>
-    <% } %> <% } %>
-  </div>
+        <div class="flash-messages">
+          <% if (messages.success) { %> <% for (let msg of messages.success) { %>
+          <p class="success"><%= msg %></p>
+          <% } %> <% } %> <% if (messages.info) { %> <% for (let msg of messages.info)
+          { %>
+          <p class="info"><%= msg %></p>
+          <% } %> <% } %> <% if (messages.error) { %> <% for (let msg of
+          messages.error) { %>
+          <p class="error"><%= msg %></p>
+          <% } %> <% } %>
+        </div>
 
-  <form action="<%= baseUrl %>/login" method="post">
-    <p>
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" required />
-    </p>
-    <p>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" required />
-    </p>
-
-    <input class="button button-primary" type="submit" value="Login" />
-
-    <p>
-      Don't have an account yet?
-      <a href="/users/signup">Sign up here</a>
-    </p>
-  </form>
-</div>
+          <form class="row" action="<%= baseUrl %>/login" method="post">
+            <div class="col-12">
+              <label class="form-label" for="username">Username </label>
+              <input class="form-control" type="text" name="username" id="username" required />
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="password">Password </label>
+              <input class="form-control" type="password" name="password" id="password" required />
+            </div>
+            
+            <div class="col-12 mt-4">
+              <input class="form-control btn btn-primary" type="submit" value="Login" />
+            </div>
+          </form>
+          <div class="mt-2">
+              Don't have an account yet?
+              <a href="/users/signup">Create one</a>
+            </div>
+    </div>
   </body>
 </div>
 </html>

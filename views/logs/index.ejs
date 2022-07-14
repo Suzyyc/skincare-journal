@@ -5,13 +5,14 @@
 <h2>Welcome Back <%= currentUser.username%></h2>
 <% } %>
     <p>Journal Entries</p>
-        <p><a class="btn btn-primary" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
+        <p><a class="btn btn-primary btn-sm" href="/logs/new"/><i class="bi bi-journal-richtext"></i>  New Summary</a></p>
 
-        <ul>
+        <ul class="list-group list-group-flush">
             <% for (const log of logs) {%>
-                <li><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+            <li class="list-group-item"><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
             <% } %>
-        </ul>
+          </ul>
+          <br>
 
     <p>Products</p>
     <ul>

@@ -4,7 +4,7 @@
 <p><a href="/logs"/><i class="bi bi-arrow-left-short"></i>Back</a></p>
   <p>Date: <%= log.date.toDateString() %></p>
 
-  <p>Skincare Products</p>
+  <p class="skin">Skincare Products</p>
   <hr>
 <% for (const product of products) {%>
     <p><%= product.kind %>: <%= product.name %></p>

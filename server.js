@@ -38,9 +38,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
-app.use("/", (req, res) => {
-  res.redirect("/login");
-});
+// app.use("/", (req, res) => {
+//   res.redirect("/login");
+// });
 
 app.use("/", sessionsController);
 app.use("/users", usersController);

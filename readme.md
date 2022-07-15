@@ -30,8 +30,6 @@ Link to the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-mate
 ## Wireframes
 
 ![](./public/img/IMG_3125.jpg)
-![](./public/img/Suzy-9.jpg)
-![](./public/img/Suzy-14-2.jpg)
 
 <img src="./public/img/Suzy-9.jpg" width="250"> <img src="./public/img/Suzy-14-2.jpg" width="250">
 

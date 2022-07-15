@@ -25,16 +25,19 @@ body {
   --bs-btn-bg: none;
   --bs-btn-border-color: #3d6d79;
   --bs-btn-color: #3d6d79;
+  --bs-btn-hover-bg: #709fb0;
 }
 
 .btn-outline-primary {
   --bs-btn-border-color: #3d6d79;
   --bs-btn-color: #3d6d79;
+  --bs-btn-hover-bg: #709fb0;
 }
 
 .btn-outline-dark {
   --bs-btn-border-color: #3d6d79;
   --bs-btn-color: #3d6d79;
+  --bs-btn-hover-bg: #709fb0;
 }
 
 :root {
@@ -56,7 +59,7 @@ a {
 }
 
 a:hover {
-  color: #d69d66;
+  color: #709fb0;
 }
 
 .aboutme a {

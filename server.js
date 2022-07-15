@@ -11,6 +11,7 @@ const skincareRouter = require("./controllers/skincare");
 const logRouter = require("./controllers/log");
 const usersController = require("./controllers/users");
 const sessionsController = require("./controllers/sessions");
+const pagesController = require("./controllers/pages");
 
 const PORT = process.env.PORT;
 const dbURL = process.env.MONGODB_URL;
@@ -42,6 +43,7 @@ app.use("/", sessionsController);
 app.use("/users", usersController);
 app.use("/skincare", skincareRouter);
 app.use("/logs", logRouter);
+app.use("/pages", pagesController);
 
 app.use("/", (req, res) => {
   res.redirect("/login");

@@ -26,6 +26,14 @@ Link to the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-mate
 
 <hr>
 
+## Wireframes
+
+![](/skincare-journal/public/img/IMG_3125.jpg)
+![](/skincare-journal/public/img/Suzy-9.jpg)
+![](/skincare-journal/public/img/Suzy-14.jpg)
+
+<hr>
+
 ## Journal Features
 
 Individual Users can write a journal of their current skincare routine. They can include the products of what they are using and make notes of whats working for them.
@@ -41,8 +49,7 @@ Individual Users can write a journal of their current skincare routine. They can
 
 ![](/skincare-journal/public/img/IMG_3126.PNG)
 
-<img src="/skincare-journal/public/img/IMG_3126.PNG" width="200">
-
+<hr>
 ## Future features
 
 - Footer

@@ -15,8 +15,9 @@ Uses MVC file structure.
 7 Restful routes and full crud application for Mobile and Desktop.
 
 Feel free to make an account and use the journal.
-Heroku: [Journal](https://skincarejournal.herokuapp.com/login).
-Github: [Journal](https://github.com/Suzyyc/skincare-journal).
+
+- Heroku: [Journal](https://skincarejournal.herokuapp.com/login).
+- Github: [Journal](https://github.com/Suzyyc/skincare-journal).
 
 <hr>
 
@@ -31,6 +32,8 @@ Link to the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-mate
 ![](./public/img/IMG_3125.jpg)
 ![](./public/img/Suzy-9.jpg)
 ![](./public/img/Suzy-14-2.jpg)
+
+<img src="./public/img/Suzy-9.jpg" width="250"> <img src="./public/img/Suzy-14-2.jpg" width="250">
 
 <hr>
 
@@ -47,9 +50,10 @@ Individual Users can write a journal of their current skincare routine. They can
 
 ## Mobile Friendly
 
-![](/skincare-journal/public/img/IMG_3126.PNG)
+![](./public/img/IMG_3126.PNG)
 
 <hr>
+
 ## Future features
 
 - Footer

@@ -54,8 +54,13 @@ a {
   text-decoration: none;
   color: #3d6d79;
 }
+
 a:hover {
-  color: #3d6d79;
+  color: #d69d66;
+}
+
+.aboutme a {
+  color: #709fb0;
 }
 
 .head-pic {

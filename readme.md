@@ -52,5 +52,5 @@ Individual Users can write a journal of their current skincare routine. They can
 
 ## Future features
 
-- Footer
 - AM & PM Skincare Routine to choose from
+- User can upload pictures of their skincare product

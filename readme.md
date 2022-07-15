@@ -29,8 +29,6 @@ Link to the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-mate
 
 ## Wireframes
 
-![](./public/img/IMG_3125.jpg)
-
 <img src="./public/img/Suzy-9.jpg" width="250"> <img src="./public/img/Suzy-14-2.jpg" width="250">
 
 <hr>
@@ -48,7 +46,7 @@ Individual Users can write a journal of their current skincare routine. They can
 
 ## Mobile Friendly
 
-![](./public/img/IMG_3126.PNG)
+<img src="./public/img/IMG_3126.PNG" width="250">
 
 <hr>
 

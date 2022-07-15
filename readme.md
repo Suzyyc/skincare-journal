@@ -30,7 +30,7 @@ Link to the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-mate
 
 ![](/skincare-journal/public/img/IMG_3125.jpg)
 ![](/skincare-journal/public/img/Suzy-9.jpg)
-![](/skincare-journal/public/img/Suzy-14.jpg)
+![](/skincare-journal/public/img/Suzy-14-2.jpg)
 
 <hr>
 

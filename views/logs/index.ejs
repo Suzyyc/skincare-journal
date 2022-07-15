@@ -16,7 +16,11 @@
 
                     <ul class="list-group list-group-flush">
                         <% for (const log of logs) {%>
-                        <li class="fs-5 text list-group-item"><a href="/logs/<%= log.id %>"><%= log.date.toDateString() %></a></li>
+                        <li class="fs-5 text list-group-item"><a href="/logs/<%= log.id %>">
+                            <% if (log.date !== null) { %>
+                                <%= log.date.toDateString() %>
+                            <% } %>
+                        </a></li>
                         <% } %>
                     </ul>
                 </div>

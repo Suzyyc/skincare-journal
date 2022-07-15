@@ -16,7 +16,9 @@
 
   <div class="card">
     <div class="card-body">
-      <h3>Date: <%= log.date.toDateString() %></h3>
+      <% if (log.date !== null) { %>
+        <h3>Date: <%= log.date.toDateString() %></h3>
+      <% } %>
 
       <div class="row">
         <h2>Skincare Products</h2>

@@ -23,7 +23,7 @@ Feel free to make an account and use the journal.
 
 ## Brief
 
-Link to the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-materials/tree/main/express/project).
+Link to the [brief](brief.md).
 
 <hr>
 

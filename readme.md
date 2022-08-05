@@ -16,6 +16,13 @@ Uses MVC file structure.
 
 Feel free to make an account and use the journal.
 
+Sample account:
+
+```
+Username: demo
+Password: demo
+```
+
 - Heroku: [Journal](https://skincarejournal.herokuapp.com/login).
 - Github: [Journal](https://github.com/Suzyyc/skincare-journal).
 

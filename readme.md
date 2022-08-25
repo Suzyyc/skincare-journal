@@ -1,6 +1,6 @@
 # Skincare Journal
 
-### Week 6 - Second Project
+### Second Project
 
 A online Skincare Journal. Using applications:
 
@@ -53,7 +53,7 @@ Individual Users can write a journal of their current skincare routine. They can
 
 ## Mobile Friendly
 
-<img src="./public/img/IMG_3126.PNG" width="250">
+<img src="./public/img/IMG_3126.jpg" width="250">
 
 <hr>
 
